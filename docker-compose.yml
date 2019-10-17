@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      APP_ENV: prod
+      DATABASE_NAME: app
+      DATABASE_USER: app
+      DATABASE_PASSWORD: secr3t_p*ss
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: secr3t_p*ss
+      POSTGRES_USER: app
+      POSTGRES_DB: app
